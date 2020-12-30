@@ -22,6 +22,8 @@ function getCss(theme: string, fontSize: string) {
         radial = 'dimgray';
     }
     return `
+    @import url('https://fonts.googleapis.com/css2?family=Kosugi&display=swap');
+
     @font-face {
         font-family: 'Inter';
         font-style:  normal;
@@ -95,7 +97,7 @@ function getCss(theme: string, fontSize: string) {
     }
     
     .heading {
-        font-family: 'Inter', sans-serif;
+        font-family: 'Kosugi', 'Inter', sans-serif;
         font-size: ${sanitizeHtml(fontSize)};
         font-style: normal;
         color: ${foreground};
