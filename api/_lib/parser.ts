@@ -51,7 +51,9 @@ function getArray(stringOrArray: string[] | string | undefined): string[] {
 }
 
 function getDefaultImages(images: string[], theme: Theme): string[] {
-    const defaultImage = 'https://secure.gravatar.com/avatar/542bf1e833425f6ab7bc7bd7238a4792?s=250';
+    const defaultImage = theme === 'light'
+        ? 'https://secure.gravatar.com/avatar/542bf1e833425f6ab7bc7bd7238a4792?s=250'
+        : 'https://secure.gravatar.com/avatar/542bf1e833425f6ab7bc7bd7238a4792?s=250';
 
     if (!images || !images[0]) {
         return [defaultImage];
