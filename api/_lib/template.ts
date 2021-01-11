@@ -22,7 +22,7 @@ function getCss(theme: string, fontSize: string) {
         radial = 'dimgray';
     }
     return `
-    @import url('https://fonts.googleapis.com/css2?family=Kosugi&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
 
     @font-face {
         font-family: 'Inter';
@@ -97,7 +97,8 @@ function getCss(theme: string, fontSize: string) {
     }
     
     .heading {
-        font-family: Kosugi, sans-serif;
+        font-family: Noto Sans JP, sans-serif;
+        font-weight: 900;
         font-size: ${sanitizeHtml(fontSize)};
         font-style: normal;
         color: ${foreground};
