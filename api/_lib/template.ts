@@ -22,7 +22,7 @@ function getCss(theme: string, fontSize: string) {
         radial = 'dimgray';
     }
     return `
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@900&display=swap');
 
     @font-face {
         font-family: 'Inter';
@@ -67,7 +67,8 @@ function getCss(theme: string, fontSize: string) {
         content: '\`';
     }
 
-    .wrappter {
+    .wrapper {
+        width: 90%;
         display: flex;
         flex-direction: column;
         justify-content: center;

@@ -20,6 +20,7 @@ export async function getScreenshot(html: string, type: FileType, isDev: boolean
         'Accept-Language': 'ja-JP'
     });
     await page.setContent(html);
+    await page.waitFor(1000);
     const file = await page.screenshot({ type });
     return file;
 }
