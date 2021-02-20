@@ -109,7 +109,7 @@ function getCss(theme: string, fontSize: string) {
 export function getHtml(parsedReq: ParsedRequest) {
     const { text, theme, md, fontSize, images, widths, heights } = parsedReq;
     return `<!DOCTYPE html>
-<html>
+<html lang="ja">
     <meta charset="utf-8">
     <title>Generated Image</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -121,20 +121,20 @@ export function getHtml(parsedReq: ParsedRequest) {
             <div class="spacer">
             <div class="logo-wrapper">
                 ${images.map((img, i) =>
-                    getPlusSign(i) + getImage(img, widths[i], heights[i])
-                ).join('')}
+        getPlusSign(i) + getImage(img, widths[i], heights[i])
+    ).join('')}
             </div>
             <div class="spacer">
             <div class="heading">${emojify(
-                md ? marked(text) : sanitizeHtml(text)
-            )}
+        md ? marked(text) : sanitizeHtml(text)
+    )}
             </div>
         </div>
     </body>
 </html>`;
 }
 
-function getImage(src: string, width ='auto', height = '225') {
+function getImage(src: string, width = 'auto', height = '225') {
     return `<img
         class="logo"
         alt="Generated Image"
