@@ -116,7 +116,7 @@ function getCss(theme: string, fontSize: string) {
 }
 
 export function getHtml(parsedReq: ParsedRequest) {
-    const { text, theme, md, fontSize, images, widths, heights } = parsedReq;
+    const { text, theme, md, fontSize, images } = parsedReq;
     return `<!DOCTYPE html>
 <html lang="ja">
     <meta charset="utf-8">
@@ -134,7 +134,7 @@ export function getHtml(parsedReq: ParsedRequest) {
             <div class="footer">
             <p>the world as code</p>
                 ${images.map((img, i) =>
-        getPlusSign(i) + getImage(img, widths[50], heights[50])
+        getPlusSign(i) + getImage(img)
     ).join('')}
             </div>
         </div>
@@ -142,7 +142,7 @@ export function getHtml(parsedReq: ParsedRequest) {
 </html>`;
 }
 
-function getImage(src: string, width = 'auto', height = '225') {
+function getImage(src: string, width = '50', height = '50') {
     return `<img
         class="logo"
         alt="Generated Image"
