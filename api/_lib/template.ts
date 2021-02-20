@@ -78,16 +78,21 @@ function getCss(theme: string, fontSize: string) {
         font-family: Noto Sans JP, sans-serif;
         font-weight: 900;
         font-size: ${sanitizeHtml(fontSize)};
-        font-style: normal;
         color: ${foreground};
         line-height: 1.8;
+        text-align: left;
+        line-break: strict;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
     }
 
     .footer {
         display: flex;
-        font-size: 72px;
+        font-size: 64px;
+        font-family: Verdana;
         color: ${foreground};
         align-self: flex-end;
+        align-items: center;
         justify-content: flex-end;
     }
 
@@ -141,7 +146,7 @@ export function getHtml(parsedReq: ParsedRequest) {
 </html>`;
 }
 
-function getImage(src: string, width = '50', height = '50') {
+function getImage(src: string, width = '100', height = '100') {
     return `<img
         class="logo"
         alt="Generated Image"
