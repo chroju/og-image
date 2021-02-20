@@ -45,6 +45,13 @@ function getCss(theme: string, fontSize: string) {
         src: url(data:font/woff2;charset=utf-8;base64,${mono})  format("woff2");
       }
 
+    @font-face {
+        font-family: 'ntsjp';
+        font-style: normal;
+        font-weight: 900;
+        src: url("../_fonts/NotoSansJP-Black.woff") format("woff");
+      }
+
     body {
         background: ${background};
         background-image: radial-gradient(circle at 25px 25px, ${radial} 2%, transparent 0%), radial-gradient(circle at 75px 75px, ${radial} 2%, transparent 0%);
@@ -76,7 +83,7 @@ function getCss(theme: string, fontSize: string) {
     }
 
     .heading {
-        font-family: Noto Sans JP, sans-serif;
+        font-family: 'ntsjp', sans-serif;
         font-weight: 900;
         font-size: ${sanitizeHtml(fontSize)};
         color: ${foreground};
