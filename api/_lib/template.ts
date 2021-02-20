@@ -85,9 +85,11 @@ function getCss(theme: string, fontSize: string) {
 
     .footer {
         display: flex;
-        font-size: 72px;
+        font-size: 64px;
+        font-family: Verdana;
         color: ${foreground};
         align-self: flex-end;
+        align-items: center;
         justify-content: flex-end;
     }
 
@@ -142,7 +144,7 @@ export function getHtml(parsedReq: ParsedRequest) {
 </html>`;
 }
 
-function getImage(src: string, width = '50', height = '50') {
+function getImage(src: string, width = '100', height = '100') {
     return `<img
         class="logo"
         alt="Generated Image"
