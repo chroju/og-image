@@ -1,6 +1,6 @@
 import { IncomingMessage } from 'http';
 import { parse } from 'url';
-import { ParsedRequest, Theme } from './types';
+import { ParsedRequest } from './types';
 
 export function parseRequest(req: IncomingMessage) {
     console.log('HTTP ' + req.url);
@@ -13,7 +13,7 @@ export function parseRequest(req: IncomingMessage) {
     if (Array.isArray(theme)) {
         throw new Error('Expected a single theme');
     }
-    
+
     const arr = (pathname || '/').slice(1).split('.');
     let extension = '';
     let text = '';
@@ -36,7 +36,7 @@ export function parseRequest(req: IncomingMessage) {
         widths: getArray(widths),
         heights: getArray(heights),
     };
-    parsedRequest.images = getDefaultImages(parsedRequest.images, parsedRequest.theme);
+    parsedRequest.images = getDefaultImages();
     return parsedRequest;
 }
 
@@ -50,16 +50,6 @@ function getArray(stringOrArray: string[] | string | undefined): string[] {
     }
 }
 
-function getDefaultImages(images: string[], theme: Theme): string[] {
-    const defaultImage = theme === 'light'
-        ? 'https://secure.gravatar.com/avatar/542bf1e833425f6ab7bc7bd7238a4792?s=250'
-        : 'https://secure.gravatar.com/avatar/542bf1e833425f6ab7bc7bd7238a4792?s=250';
-
-    if (!images || !images[0]) {
-        return [defaultImage];
-    }
-    if (!images[0].startsWith('https://assets.vercel.com/') && !images[0].startsWith('https://assets.zeit.co/')) {
-        images[0] = defaultImage;
-    }
-    return images;
+function getDefaultImages(): string[] {
+    return ['https://secure.gravatar.com/avatar/542bf1e833425f6ab7bc7bd7238a4792?s=50'];
 }
