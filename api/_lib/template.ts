@@ -80,6 +80,7 @@ function getCss(theme: string, fontSize: string) {
         font-size: ${sanitizeHtml(fontSize)};
         color: ${foreground};
         line-height: 1.8;
+        padding: 50px;
         text-align: left;
         line-break: strict;
         overflow-wrap: break-word;
