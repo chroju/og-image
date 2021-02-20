@@ -125,8 +125,7 @@ export function getHtml(parsedReq: ParsedRequest) {
     <style>
         ${getCss(theme, fontSize)}
     </style>
-    <body>
-        <div class="wrapper">
+    <body>        <div class="wrapper">
             <div class="heading">${emojify(
         md ? marked(text) : sanitizeHtml(text)
     )}
