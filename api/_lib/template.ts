@@ -67,12 +67,28 @@ function getCss(theme: string, fontSize: string) {
         content: '\`';
     }
 
-    .logo-wrapper {
+    .wrappter {
         display: flex;
-        align-items: center;
-        align-content: center;
+        flex-direction: column;
         justify-content: center;
-        justify-items: center;
+        align-items: stretch;
+    }
+
+    .heading {
+        font-family: Noto Sans JP, sans-serif;
+        font-weight: 900;
+        font-size: ${sanitizeHtml(fontSize)};
+        font-style: normal;
+        color: ${foreground};
+        line-height: 1.8;
+    }
+
+    .footer {
+        display: flex;
+        font-size: 72px;
+        color: ${foreground};
+        align-self: flex-end;
+        justify-content: flex-end;
     }
 
     .logo {
@@ -96,14 +112,7 @@ function getCss(theme: string, fontSize: string) {
         vertical-align: -0.1em;
     }
     
-    .heading {
-        font-family: Noto Sans JP, sans-serif;
-        font-weight: 900;
-        font-size: ${sanitizeHtml(fontSize)};
-        font-style: normal;
-        color: ${foreground};
-        line-height: 1.8;
-    }`;
+    `;
 }
 
 export function getHtml(parsedReq: ParsedRequest) {
@@ -117,17 +126,16 @@ export function getHtml(parsedReq: ParsedRequest) {
         ${getCss(theme, fontSize)}
     </style>
     <body>
-        <div>
-            <div class="spacer">
-            <div class="logo-wrapper">
-                ${images.map((img, i) =>
-        getPlusSign(i) + getImage(img, widths[i], heights[i])
-    ).join('')}
-            </div>
-            <div class="spacer">
+        <div class="wrapper">
             <div class="heading">${emojify(
         md ? marked(text) : sanitizeHtml(text)
     )}
+            </div>
+            <div class="footer">
+            <p>the world as code</p>
+                ${images.map((img, i) =>
+        getPlusSign(i) + getImage(img, widths[50], heights[50])
+    ).join('')}
             </div>
         </div>
     </body>
